@@ -9,67 +9,171 @@ models:
     columns:
       - name: purchase_order_id
         description: Unique identifier for the purchase order.
+        tests:
+          - not_null
+          - column_type:
+              type: INT64
       - name: supplier_id
         description: Identifier of the supplier associated with the purchase order.
+        tests:
+          - not_null
+          - column_type:
+              type: INT64
       - name: product_id
         description: Identifier of the product ordered.
+        tests:
+          - not_null
+          - column_type:
+              type: INT64
       - name: quantity
         description: Quantity of the product ordered.
+        tests:
+          - column_type:
+              type: FLOAT64
       - name: unit_cost
         description: Cost per unit for the product in this purchase order.
+        tests:
+          - column_type:
+              type: FLOAT64
       - name: status_id
         description: Current status of the purchase order.
+        tests:
+          - column_type:
+              type: INT64
       - name: creation_date
         description: Date the purchase order was created. Used as the base for date dimension joins.
+        tests:
+          - not_null
+          - column_type:
+              type: DATE
       - name: submitted_date
         description: Date the purchase order was submitted.
+        tests:
+          - column_type:
+              type: DATETIME
       - name: expected_date
         description: Expected delivery date for the purchase order.
+        tests:
+          - column_type:
+              type: DATETIME
       - name: date_received
         description: Actual date the order was received.
+        tests:
+          - column_type:
+              type: DATETIME
       - name: shipping_fee
         description: Shipping fee associated with the purchase order.
+        tests:
+          - column_type:
+              type: FLOAT64
       - name: taxes
         description: Taxes applied to the purchase order.
+        tests:
+          - column_type:
+              type: FLOAT64
       - name: payment_date
         description: Date payment was made.
+        tests:
+          - column_type:
+              type: DATETIME
       - name: payment_amount
         description: Amount paid for the purchase order.
+        tests:
+          - column_type:
+              type: FLOAT64
       - name: payment_method
         description: Method used for payment.
+        tests:
+          - column_type:
+              type: STRING
       - name: approved_by
         description: Employee who approved the purchase order.
+        tests:
+          - column_type:
+              type: INT64
       - name: approved_date
         description: Date the purchase order was approved.
+        tests:
+          - column_type:
+              type: DATETIME
       - name: submitted_by
         description: Employee who submitted the purchase order.
+        tests:
+          - column_type:
+              type: INT64
       - name: notes
         description: Additional notes for the purchase order.
+        tests:
+          - column_type:
+              type: STRING
       - name: product_code
         description: Unique code identifying the product.
+        tests:
+          - column_type:
+              type: STRING
       - name: product_name
         description: Name of the product.
+        tests:
+          - column_type:
+              type: STRING
       - name: supplier_company
         description: Name of the supplier company providing the product.
+        tests:
+          - column_type:
+              type: STRING
       - name: category
         description: Product category.
+        tests:
+          - column_type:
+              type: STRING
       - name: standard_cost
         description: Standard cost of the product.
+        tests:
+          - column_type:
+              type: FLOAT64
       - name: list_price
         description: List price of the product.
+        tests:
+          - column_type:
+              type: FLOAT64
       - name: year
         description: Calendar year of the purchase order creation date.
+        tests:
+          - column_type:
+              type: INT64
       - name: fiscal_year
         description: Fiscal year of the purchase order creation date.
+        tests:
+          - column_type:
+              type: INT64
       - name: fiscal_qtr
         description: Fiscal quarter of the purchase order creation date.
+        tests:
+          - column_type:
+              type: STRING
       - name: month
         description: Month number of the purchase order creation date.
+        tests:
+          - column_type:
+              type: INT64
       - name: month_name
         description: Month name of the purchase order creation date.
+        tests:
+          - column_type:
+              type: STRING
       - name: year_week
         description: Week number within the year of the purchase order creation date.
+        tests:
+          - column_type:
+              type: INT64
       - name: day_name
         description: Day of the week name for the purchase order creation date.
+        tests:
+          - column_type:
+              type: STRING
       - name: insertion_timestamp
         description: Timestamp when the record was inserted into this table.
+        tests:
+          - not_null
+          - column_type:
+              type: TIMESTAMP
