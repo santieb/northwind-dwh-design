@@ -1,24 +1,104 @@
-version: 2 
+version: 2
 sources:
   - name: northwind
     schema: dl_northwind
-    tables: 
+    tables:
       - name: customer
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
       - name: employee_privileges
       - name: employees
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
       - name: inventory_transaction_types
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
       - name: inventory_transactions
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
       - name: invoices
       - name: order_details
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
       - name: order_details_status
+        columns:
+          - name: status_id
+            tests:
+              - unique
+              - not_null
       - name: orders_status
+        columns:
+          - name: status_id
+            tests:
+              - unique
+              - not_null
       - name: orders
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
       - name: orders_tax_status
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
       - name: privileges
+        columns:
+          - name: privilege_id
+            tests:
+              - unique
+              - not_null
       - name: products
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
       - name: purchase_order_details
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
       - name: purchase_order_status
+        columns:
+          - name: status_id
+            tests:
+              - unique
+              - not_null
       - name: purchase_orders
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
       - name: shippers
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
       - name: suppliers
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
       - name: strings

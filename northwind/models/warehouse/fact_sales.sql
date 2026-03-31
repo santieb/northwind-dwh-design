@@ -29,7 +29,7 @@ with source as(
 ),
 unique_source as (
     select *,
-            row_number() over(partition by customer_id, employee_id, order_id, product_id, shipper_id, purchase_order_id, shipper_id, order_date) as row_number
+            row_number() over(partition by customer_id, employee_id, order_id, product_id, shipper_id, purchase_order_id, order_date) as row_number
     from source
 )
 select * 
