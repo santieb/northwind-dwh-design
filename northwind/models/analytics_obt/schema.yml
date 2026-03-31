@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: obt_sales_overview
+    description: >
+      One Big Table combining sales facts with customer, employee, and product dimensions.
+      Used for sales reporting and analysis.
+    columns:
+      - name: order_id
+        description: Identifier for the order.
+        tests:
+          - not_null
+      - name: customer_id
+        description: Foreign key to dim_customer.
+        tests:
+          - not_null
+      - name: product_id
+        description: Foreign key to dim_product.
+        tests:
+          - not_null
+
+  - name: obt_customer_reporting
+    description: >
+      One Big Table combining purchase order facts with customer, employee, and product dimensions.
+      Used for customer-level purchase order reporting.
+    columns:
+      - name: purchase_order_id
+        description: Identifier for the purchase order.
+        tests:
+          - not_null
+
+  - name: obt_product_inventory
+    description: >
+      One Big Table combining inventory transactions with product dimension.
+      Used for product inventory analysis.
+    columns:
+      - name: inventory_id
+        description: Primary key for the inventory transaction.
+        tests:
+          - not_null
+      - name: product_id
+        description: Foreign key to dim_product.
+        tests:
+          - not_null

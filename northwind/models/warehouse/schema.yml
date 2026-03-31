@@ -1,0 +1,71 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: Customer dimension with deduplication based on customer_id.
+    columns:
+      - name: customer_id
+        description: Primary key for the customer dimension.
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_employee
+    description: Employee dimension with deduplication based on employee_id.
+    columns:
+      - name: employee_id
+        description: Primary key for the employee dimension.
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_product
+    description: Product dimension including supplier information.
+    columns:
+      - name: product_id
+        description: Primary key for the product dimension.
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_date
+    description: Date dimension spanning 2014-01-01 to 2050-01-01.
+    columns:
+      - name: id
+        description: Date formatted as YYYY-MM-DD (primary key).
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_sales
+    description: Sales fact table built from orders and order details.
+    columns:
+      - name: order_id
+        description: Identifier for the order.
+        tests:
+          - not_null
+      - name: product_id
+        description: Foreign key to dim_product.
+        tests:
+          - not_null
+      - name: customer_id
+        description: Foreign key to dim_customer.
+        tests:
+          - not_null
+
+  - name: fact_inventory
+    description: Inventory transactions fact table.
+    columns:
+      - name: inventory_id
+        description: Primary key for the inventory transaction.
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_purchase_order
+    description: Purchase order fact table with supplier and product details.
+    columns:
+      - name: purchase_order_id
+        description: Identifier for the purchase order.
+        tests:
+          - not_null

@@ -17,7 +17,6 @@ with source as (
         i.transaction_type,
         i.transaction_created_date,
         i.transaction_modified_date,
-        i.product_id as ipd,
         i.quantity,
         i.purchase_order_id,
         i.customer_order_id,

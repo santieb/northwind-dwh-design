@@ -3,7 +3,7 @@ select
   d                     as full_date,
   extract(YEAR from d)  as year,
   extract(WEEK from d)  as year_week,
-  extract(DAY from d)   as year_day,
+  extract(DAYOFYEAR from d) as year_day,
   extract(YEAR from d)  as fiscal_year,
   format_date('%Q', d)  as fiscal_qtr,
   extract(MONTH from d) as month,
